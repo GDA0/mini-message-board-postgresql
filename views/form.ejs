@@ -1,0 +1,21 @@
+<% layout('layout') %>
+<h3>Add a new message</h3>
+<form method="POST" action="/new">
+  <div class="mb-3">
+    <label class="form-label" for="user">Author:</label>
+    <input class="form-control" type="text" id="user" name="user" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="text">Message:</label>
+    <textarea
+      class="form-control"
+      name="text"
+      id="text"
+      rows="3"
+      required
+    ></textarea>
+  </div>
+  <div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,38 @@
+<% layout('layout') %>
+<div class="d-flex align-items-center mb-3">
+  <h3>Messages</h3>
+  <a href="/new" class="btn btn-success ms-auto my-auto">Add a new message</a>
+</div>
+<ul class="list-group list-group-flush">
+  <% messages.forEach((message) => { %>
+  <li class="list-group-item mb-3">
+    <div class="bg-light p-3 rounded">
+      <p class="fs-5"><%= message.text %></p>
+      <div
+        class="message-meta d-flex justify-content-between align-items-center"
+      >
+        <p class="m-0">From: <strong><%= message.user %></strong></p>
+        <p class="m-0">
+          <%= formatDistanceToNow(new Date(message.added), { addSuffix: true })
+          %>
+        </p>
+      </div>
+    </div>
+    <div class="d-flex">
+      <a href="/messages/<%= message.id %>" class="btn btn-primary my-2 ms-auto"
+        >Open</a
+      >
+    </div>
+  </li>
+  <% }); %>
+</ul>
+
+<style>
+  .message-meta {
+    font-size: 0.9em;
+    color: #555;
+  }
+  .btn-success {
+    margin-top: 20px;
+  }
+</style>
